@@ -79,7 +79,7 @@ git merge는 그걸 merge(병합)하라는 뜻
 그래서 .gitignore 파일에 명시해주면 됨 -->
 
 (Homework) 오늘의 과제:
-1) VS Code 단축키 정리한 것 받아가기
+1) Eclipse 단축키 정리한 것 받아가기
 2) 파일 만들거나 파일 내용 수정하면서 commit 여러 번 해보기
 중간중간 git status, git log 명령어도 사용해보기
 3) 집에 가서 오늘 수업한 저장소를 복제하여 이어서 commit 여러 번 해보기
