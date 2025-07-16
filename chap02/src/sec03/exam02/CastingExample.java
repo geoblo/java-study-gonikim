@@ -1,5 +1,7 @@
 package sec03.exam02;
 
+import java.util.Scanner;
+
 public class CastingExample {
 
 	public static void main(String[] args) {
@@ -17,6 +19,13 @@ public class CastingExample {
 		intValue = (int) doubleValue; // 정수 부분만 저장됨
 		System.out.println(intValue);
 		
+		// Quiz
+//		long 타입을 입력받아 변수 number에 저장 후 number 변수의 값을
+//		int 타입으로 변환한 결과를 출력하시오.
+		Scanner sc = new Scanner(System.in);
+		System.out.print("long 타입 입력: ");
+		long number = sc.nextLong();
+		System.out.println((int) number);
 	}
 
 }
