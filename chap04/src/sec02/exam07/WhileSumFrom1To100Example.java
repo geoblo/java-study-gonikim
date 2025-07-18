@@ -1,5 +1,7 @@
 package sec02.exam07;
 
+import java.util.Scanner;
+
 public class WhileSumFrom1To100Example {
 
 	public static void main(String[] args) {
@@ -55,7 +57,17 @@ public class WhileSumFrom1To100Example {
 		// 최소 한 번은 실행해야 하는 로직에 유용하지만, 실무에서는 거의 사용되지 않음
 		
 		// Quiz1: 1부터 100까지 홀수의 합
+		sum = 0;
+		int j = 1;
 		
+		while (j <= 100) {
+//			if (j % 2 == 1) {
+			if (j % 2 != 0) {
+				sum += j;
+			}
+			j++;
+		}
+		System.out.println("1~100 까지 홀수의 합: " + sum);
 		
 		// Quiz2:
 //		화면에서 자연수를 입력받아서 각 자리수의 합을 출력하는 프로그램을 구현하시오.
@@ -68,12 +80,18 @@ public class WhileSumFrom1To100Example {
 //		1) 마지막 자리 수 더하기
 //		2) 마지막 자리 제거
 		
+		Scanner sc = new Scanner(System.in);
 		
+		System.out.print("자연수를 입력하세요: ");
+		int num = sc.nextInt();
 		
+		sum = 0;
+		while (num > 0) {
+			sum += num % 10; // 마지막 자리 수 더하기
+			num /= 10; // 마지막 자리 제거
+		}
 		
-		
-		
-		
+		System.out.println("각 자리수의 합: " + sum);
 	}
 
 }
