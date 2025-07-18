@@ -6,3 +6,9 @@ chap03. 연산자 과제
 https://devkgn24.notion.site/14afda8bae578074bad4f9c76f5f50b9
 연산자만 사용해서 풀 것!(조건문 대신에 삼항(조건) 연산자 사용할 것)
 
+chap04. 
+1) 조건문 과제
+https://devkgn24.notion.site/14bfda8bae5780a192eddf35bfe9f3fe
+3번 문제: 삼항 연산자 대신 조건문 사용할 것
+6번 문제: 과락 과목이 여러 개일 경우 입력한 순서에서 제일 첫번째 과락 과목만 출력
+
