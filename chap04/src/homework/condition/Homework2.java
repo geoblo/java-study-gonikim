@@ -31,7 +31,7 @@ public class Homework2 {
         	if (temperature >= 35) {
         		season += " 폭염 경보";
         	} else if (temperature >= 33) {
-        		season += " 폭염 주의보";        		
+        		season += " 폭염 주의보";
         	}
         } else if (month >= 9 && month <= 11) {
             season = "가을";
