@@ -15,7 +15,33 @@ public class ArrayInArrayExample {
 			}
 		}
 		
+		System.out.println();
 		
+		// 2행의 2차원 배열
+		int[][] englishScore = new int[2][];
+		englishScore[0] = new int[2];
+		englishScore[1] = new int[3];
+		
+		for (int i = 0; i < englishScore.length; i++) { // englishScore.length => 2
+			for (int j = 0; j < englishScore[i].length; j++) {
+				System.out.println("englishScore[" + i + "][" + j + "]=" + englishScore[i][j]);
+			}
+		}
+		
+		System.out.println();
+		
+		// 값 목록으로 2차원 배열 만들기
+//		int[][] javaScores = {{95, 80}, {92, 96, 80}};
+		int[][] javaScores = {
+				{95, 80}, 
+				{92, 96, 80}
+		};
+		
+		for (int i = 0; i < javaScores.length; i++) { // javaScores.length => 2
+			for (int j = 0; j < javaScores[i].length; j++) {
+				System.out.println("javaScores[" + i + "][" + j + "]=" + javaScores[i][j]);
+			}
+		}
 	}
 
 }
