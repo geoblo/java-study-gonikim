@@ -9,17 +9,19 @@ public class Animal {
 
 	// 종류만 받는 생성자(기본 나이: 1살)
 	public Animal(String kind) {
-		this.kind = kind;
-		this.age = 1;
+//		this.kind = kind;
+//		this.age = 1;
+		this(kind, 1);
 	}
 	
 	// 나이만 받는 생성자(기본 종류: 사람)
 	public Animal(int age) {
-		this.kind = "사람";
-		this.age = age;
+//		this.kind = "사람";
+//		this.age = age;
+		this("사람", age);
 	}
 	
-	// 종류와 나이를 모두 받는 생성자
+	// 종류와 나이를 모두 받는 생성자(최종 목적지 한 군데에서만 초기화 수행)
 	public Animal(String kind, int age) {
 		this.kind = kind;
 		this.age = age;
