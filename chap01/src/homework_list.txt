@@ -31,5 +31,18 @@ https://devkgn24.notion.site/14ffda8bae5780d6a9f2fdc204a7cfe6
 4번 문제: 이 문제에서는 Arrays.sort() 메소드를 이용하여 정렬
 6, 7, 8번 문제: Arrays.copyOf() 메소드를 이용하여 복사
 
+chap06.
+1) 필드 과제(나중에)
+
+2) 메소드 과제
+https://devkgn24.notion.site/150fda8bae5780688dd1da6a88c552ec
+
+
+
+
+
+
+
+
 
 
