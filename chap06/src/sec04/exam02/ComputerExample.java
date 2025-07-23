@@ -26,12 +26,6 @@ public class ComputerExample {
 		
 		int result6 = myCom.sum2(new int[] {1, 2, 3, 4, 5});
 		System.out.println("result6: " + result6);
-		
-		
-		
-		
-		
-		
 	}
 
 }
