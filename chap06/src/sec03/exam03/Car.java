@@ -32,5 +32,10 @@ public class Car {
 		this.maxSpeed = maxSpeed;
 	}
 	
-	
+	// Quiz: 오버로딩 가능? 가능함(매개변수의 타입, 순서가 다름)
+//	Car(String model, int maxSpeed, String color) {
+//		this.model = model;
+//		this.color = color;
+//		this.maxSpeed = maxSpeed;
+//	}
 }
