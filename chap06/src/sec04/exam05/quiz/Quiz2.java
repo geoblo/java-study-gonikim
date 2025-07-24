@@ -10,7 +10,8 @@ public class Quiz2 {
 //
 //	Rectangle 클래스의 멤버는 다음과 같습니다.
 //	[필드]
-//	가로(width): 정수, 세로(height): 정수
+//	가로(width): 정수
+//	세로(height): 정수
 //	
 //	[메소드]
 //	area(): 직사각형의 넓이를 출력
