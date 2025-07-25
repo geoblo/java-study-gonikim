@@ -23,7 +23,7 @@ public class Quiz1 {
 		int z = sc.nextInt();
 		
 		Point3D p = new Point3D(x, y, z);
-		p.location();
+		System.out.println(p.location());
 	}
 
 }
