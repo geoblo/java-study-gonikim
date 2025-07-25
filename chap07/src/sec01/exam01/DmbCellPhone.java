@@ -7,7 +7,11 @@ public class DmbCellPhone extends CellPhone {
 	int channel;
 	
 	// 생성자
-	
+	public DmbCellPhone(String model, String color, int channel) {
+		this.model = model; // 부모(CellPhone)로부터 물려받음
+		this.color = color; // 부모(CellPhone)로부터 물려받음
+		this.channel = channel;
+	}
 	
 	// 메소드
 	void turnOnDmb() {
