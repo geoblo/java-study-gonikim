@@ -15,8 +15,8 @@ public class Run {
 //	    + void introduce(): "안녕하세요, 선생님입니다." 표준 출력
 //	    + void teach(): "수업을 하고 있습니다." 표준 출력
 //	5. Run
-//	    길이 3의 SchoolMember 객체를 담는 배열 생성
-//	    0번 인덱스에는 Student, 1번 인덱스는 Teacher, 2번 인덱스는 Staff 객체 추가
+//	    길이 3의 SchoolMember의 객체(인스턴스)를 담는 SchoolMember 타입의 배열 생성
+//	    0번 인덱스에는 Student 객체, 1번 인덱스는 Teacher 객체, 2번 인덱스는 Staff 객체 추가
 //	    for each문으로 모든 구성원 소개글 출력 및
 //	    각 객체의 타입에 맞게 work(), study(), teach() 메소드 호출
 //	
@@ -29,7 +29,23 @@ public class Run {
 //	일하는 중입니다.
 	
 	public static void main(String[] args) {
+		SchoolMember[] schoolMembers = new SchoolMember[3];
+		schoolMembers[0] = new Student();
+		schoolMembers[1] = new Teacher();
+		schoolMembers[2] = new Staff();
 		
+		// 모든 구성원 소개
+		for (SchoolMember member : schoolMembers) {
+			member.introduce();
+			
+			if (member instanceof Student student) {
+				student.study();
+			} else if (member instanceof Teacher teacher) {
+				teacher.teach();
+			} else if (member instanceof Staff staff) {
+				staff.work();
+			}
+		}
 	}
 
 }
