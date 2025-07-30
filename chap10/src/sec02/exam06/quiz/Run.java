@@ -39,7 +39,17 @@ public class Run {
 //	현재 잔액: 12000원
 	
 	public static void main(String[] args) {
+		Account account = new Account("김철수", 10000);
 		
+		try {
+			account.withdraw(3000);
+			account.deposit(5000);
+			account.withdraw(14000); // 잔액보다 많은 금액 출금 시도 -> 예외 발생
+		} catch (InsufficientBalanceException e) {
+			System.out.println("출금 실패: " + e.getMessage());
+		}
+		
+		System.out.println("현재 잔액: " + account.getBalance() + "원");
 	}
 	
 }
