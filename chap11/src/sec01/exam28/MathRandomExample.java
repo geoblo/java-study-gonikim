@@ -15,7 +15,7 @@ public class MathRandomExample {
 		
 		// 로또 번호 뽑기(1, 2, 3, ... 43, 44, 45)
 		int lotto = (int) (Math.random() * 45) + 1;
-		System.out.println("주사위 눈: " + lotto);
+		System.out.println("로또 번호: " + lotto);
 	}
 
 }
