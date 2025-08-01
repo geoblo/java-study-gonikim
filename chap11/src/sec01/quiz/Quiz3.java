@@ -17,6 +17,7 @@ public class Quiz3 {
 
 //  [힌트]
 //	indexOf(String str, int fromIndex)를 이용해 반복해서 찾기
+//	fromIndex: 검색 시작 위치 지정
 	
 	public static void main(String[] args) {
 		
