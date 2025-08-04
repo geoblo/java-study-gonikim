@@ -1,6 +1,7 @@
 package sec01.exam01_2;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class StudentListExample {
@@ -41,17 +42,12 @@ public class StudentListExample {
 		
 		// 실습: Student 클래스가 Comparable을 구현
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		// sort()는 두 대상을 비교하여 자리 바꿈을 반복함
+		Collections.sort(studentList); // 재정의한 compareTo() 기준으로 정렬
+		System.out.println("나이 기준 기본 정렬");
+		for (Student s : studentList) {
+			System.out.println(s.getName() + " - " + s.getAge());
+		}
 	}
 
 }
