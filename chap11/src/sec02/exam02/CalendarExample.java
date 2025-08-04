@@ -1,6 +1,7 @@
 package sec02.exam02;
 
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.TextStyle;
 import java.util.Calendar;
@@ -90,6 +91,36 @@ public class CalendarExample {
 		System.out.println(second2 + "초 ");
 		
 		System.out.println("===============");
+		
+		// 날짜 더하기/빼기: plusDays(), minusDays()
+		LocalDateTime plusDays = now2.plusDays(3);
+		System.out.println("3일 후: " + plusDays);
+		
+		System.out.println("===============");
+		
+		// 날짜/시간 비교: isBefore(), isAfter(), isEqual()
+		// 날짜 비교
+		LocalDate today = LocalDate.now();
+		LocalDate targetDate = LocalDate.of(2025, 12, 25); // 2025년 12월 25일
+		
+		if (today.isBefore(targetDate)) {
+			System.out.println("오늘은 크리스마스 전입니다.");
+		} else if (today.isAfter(targetDate)) {
+			System.out.println("오늘은 크리스마스 이후입니다.");			
+		} else {
+			System.out.println("오늘은 크리스마스입니다!");
+		}
+		
+		// 시간 비교
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
