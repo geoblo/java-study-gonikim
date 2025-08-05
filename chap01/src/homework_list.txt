@@ -55,6 +55,11 @@ https://devkgn24.notion.site/String-15afda8bae5780c59b45cfda95dd7d99
 2번 문제: ArrayList 대신 Array 사용
 
 chap13. 
+참고: 클래스 다이어그램에서 UML 기호 의미
+사용(의존) ---▶ 메서드에서 잠깐 사용
+구현      ---▷ 인터페이스를 implements 함
+상속      ──▷ 클래스를 extends 함
+
 1) List 과제
 https://devkgn24.notion.site/158fda8bae578064ab5aceba2b8cb6d6
 
