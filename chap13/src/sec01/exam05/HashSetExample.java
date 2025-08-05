@@ -59,13 +59,13 @@ public class HashSetExample {
 		memList.add(new Member("이수진", 25)); // 중복
 		
 		// Quiz
+		Set<Member> memSet = new HashSet<Member>(memList);
+		List<Member> dedupList = new ArrayList<Member>(memSet);
 		
-		
-		
-		
-		
-		
-		
+		System.out.println("중복 제거된 리스트:");
+		for (Member member : dedupList) {
+			System.out.println("\t" + member);
+		}
 	}
 
 }
