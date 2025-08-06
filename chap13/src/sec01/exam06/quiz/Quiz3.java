@@ -1,5 +1,9 @@
 package sec01.exam06.quiz;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 public class Quiz3 {
 //	Quiz
 //	태양계 행성들의 정보를 담고 있는 HashMap을 생성하세요.
@@ -41,10 +45,34 @@ public class Quiz3 {
 //	키: Mercury, 값: 수성(지름: 4879km, 공전주기: 0.24년)
 	
 	public static void main(String[] args) {
-		
-		
-		
-		
+		Map<String, Planet> solarSystem = new HashMap<String, Planet>();
+        solarSystem.put("Mercury", new Planet("수성", 4879, 0.24));
+        solarSystem.put("Venus", new Planet("금성", 12104, 0.62));
+        solarSystem.put("Earth", new Planet("지구", 12742, 1.0));
+        solarSystem.put("Mars", new Planet("화성", 6779, 1.88));
+        
+        System.out.println("*** keySet() 사용 ***");
+        Iterator<String> keyIterator = solarSystem.keySet().iterator();
+        while (keyIterator.hasNext()) {
+			String key = keyIterator.next();
+			Planet planet = solarSystem.get(key);
+			System.out.println("행성 이름: " + key + "(" + planet.getName() + ")"
+            		+ ", 지름: " + planet.getDiameter() + "km, 공전주기: " 
+            		+ planet.getPeriod() + "년");
+		}
+        System.out.println();
+        
+        System.out.println("*** entrySet() 사용 ***");
+//        Iterator<Map.Entry<String, Planet>> entryIterator = solarSystem.entrySet().iterator();
+        var entryIterator = solarSystem.entrySet().iterator(); // (참고) 지역 변수 타입 추론
+        // 변수의 타입을 컴파일러가 자동으로 추론하도록 해주는 키워드
+        // 남발하면 코드만 보고 타입을 명확히 알 수 없어 오히려 가독성이 떨어짐
+        // 사용 예: 제네릭 타입이 긴 경우
+        
+        while (entryIterator.hasNext()) {
+			Map.Entry<String, Planet> entry = entryIterator.next();
+			System.out.println("키: " + entry.getKey() + ", 값: " + entry.getValue().toString());
+		}
 	}
 
 }
