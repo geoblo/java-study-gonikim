@@ -110,6 +110,7 @@ public class HashMapExample {
 			System.out.println("\t" + key + " : "  + value);
 //			map.remove(key); // 테스트: 예외 발생 -> Iterator 사용 시 안전
 		}
+		System.out.println();
 		
 		// 정리: Iterator가 필요한 상황(for-each보다 유리한 경우)
 		// 읽기 전용이면 for-each가 가장 깔끔하고 실용적
@@ -119,18 +120,32 @@ public class HashMapExample {
 		// Iterator.remove()는 ConcurrentModificationException 없이 안전하게 삭제 가능
 		// 반면 for-each에서 map.remove()를 쓰면 오류 발생 가능
 		
+		// 객체 검색
+		// HashMap의 Key와 Value를 기준으로 특정키나 특정값의 포함 여부를 판단할 수 있음
 		
+		// containsKey()
+		// HashMap 내에 특정키(Key)가 있는지 확인
+		String keyToCheck = "김재현";
+		if (map.containsKey(keyToCheck)) {
+			System.out.println(keyToCheck + " 키가 존재합니다.");
+		} else {
+			System.out.println(keyToCheck + " 키가 존재하지 않습니다.");			
+		}
 		
+		// containsValue()
+		// HashMap 내에 특정값(Value)이 있는지 확인
+		// 찾는 값이 있으면 첫 번째로 발견되는 즉시 true를 반환(중복이 있더라도 첫 번째 매치에서 멈춤)
+		int valueToCheck = 80;
+		if (map.containsValue(valueToCheck)) {
+			System.out.println(valueToCheck + " 값이 존재합니다.");
+		} else {
+			System.out.println(valueToCheck + " 값이 존재하지 않습니다.");			
+		}
+		System.out.println();
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		// 객체 전체 삭제
+		map.clear(); // 모든 Map.Entry 삭제
+		System.out.println("총 Entry 수: " + map.size());
 	}
 
 }
