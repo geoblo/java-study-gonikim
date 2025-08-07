@@ -20,19 +20,19 @@ public class WriteExample {
 
 	public static void main(String[] args) throws Exception {
 		// 데이터 도착지를 test1.db 파일로 하는 바이트 기반 파일 출력 스트림을 생성
-//		OutputStream os = new FileOutputStream("C:/Temp/test1.db"); // 바이트를 파일에 출력해서 저장하는 기능을 가짐
+		OutputStream os = new FileOutputStream("C:/Temp/test1.db"); // 바이트를 파일에 출력해서 저장하는 기능을 가짐
 		
 		// 출력할 바이트(0~255까지)
 		// 값의 범위를 넘어가면 오버플로우, 언더플로우 발생!
-//		byte a = 10;
-//		byte b = 20;
-//		byte c = 30;
+		byte a = 10;
+		byte b = 20;
+		byte c = 30;
 		
 		// 추가 실습: 한글 출력 테스트
-		OutputStream os = new FileOutputStream("C:/Temp/test1.txt");
-		char a = '가'; // 44032
-		char b = '나';
-		char c = '다';
+//		OutputStream os = new FileOutputStream("C:/Temp/test1.txt");
+//		char a = '가'; // 44032
+//		char b = '나';
+//		char c = '다';
 		// 해결 방법 2가지
 		// 1. 문자 기반 FileWriter 사용(또는 OutputStreamWriter 사용)
 		// 2. 문자열 직접 인코딩을 지정하여 바이트 배열로 변환해서 쓰기
@@ -53,6 +53,17 @@ public class WriteExample {
 		// 더 이상 쓰지 않을 때는 출력 스트림 닫기
 		os.close(); // 출력 스트림이 사용했던 자원들(메모리)을 풀어주기 위해
 		// 참고: close() 안에서도 스트림을 닫기 전에 flush() 기능을 수행함
+		
+		// 중요: try-with-resources
+		// 리소스를 자동으로 닫아주는 try 문법
+		// close()를 명시적으로 호출하지 않아도, try 블록이 끝나거나 예외가 발생되는 즉시 자동으로 자원 정리
+		try (OutputStream os2 = new FileOutputStream("C:/Temp/test1.db")) {
+			os2.write(a);
+			os2.write(b);
+			os2.write(c);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		// 참고: 바이너리 파일, 바이너리 데이터란?
 		// 말 그대로 0과 1로 이루어진 이진 데이터
