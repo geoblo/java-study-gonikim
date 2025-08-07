@@ -1,5 +1,10 @@
 package sec01.exam06.quiz;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+
 public class Quiz1 {
 //	Quiz
 //	FileInputStream을 사용하여 
@@ -15,11 +20,33 @@ public class Quiz1 {
 //	대한사람 대한으로 길이보전하세
 	
 //	힌트: FileInputStream은 바이트 기반 스트림이므로 
-//	바이트 배열 단위로 읽어와서 바이트 배열에 저장하고 이를 문자열로 변환
+//	바이트 배열 단위로 읽어와서 바이트 배열에 저장하고 이를 문자열로 변환(String 생성자 이용)
 	
 	public static void main(String[] args) {
+		// 바이트 기반 스트림은 바이트 단위로 데이터를 읽음 -> 문자의 코드값만 처리
+		try (InputStream is = new FileInputStream("C:/Temp/애국가1.dat")) {
+			// 테스트: 3바이트로 인코딩 된 것들을 1바이트씩 읽어와서 출력
+//			int data;
+//			while ((data = is.read()) != -1) {
+//				System.out.println(data);
+//			}
+			
+			byte[] buffer = new byte[1024];
+			int bytesRead;
+			while ((bytesRead = is.read(buffer)) != -1) {
+				// 읽은 바이트 배열을 문자열로 변환
+				String str = new String(buffer, 0, bytesRead, "UTF-8");
+				// 인덱스 0부터 정확히 읽은 문자 수만큼 문자열로 만듦
+				
+				System.out.println(str);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
-		
+		// 이렇게 바이트를 직접 읽고 수동으로 디코딩 하는 방법은
+		// 가능은 하지만 인코딩 경계 문제(멀티바이트 문자 잘림 등)가 있어서 복잡하고 위험이 큼
+		// => 문자 기반 스트림 사용
 	}
 
 }
