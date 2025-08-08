@@ -38,7 +38,6 @@ public class Quiz1 {
 		} else {
 			System.out.println("이미 존재하는 폴더");
 		}
-
 	}
 
 }

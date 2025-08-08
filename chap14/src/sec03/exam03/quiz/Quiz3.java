@@ -27,7 +27,7 @@ public class Quiz3 {
 
             long totalSize = file.length();
             System.out.println(totalSize - bytesRead);
-//            System.out.println(is.available()); // 읽을 수 있는(남아 있는) 바이트 수를 리턴함
+            System.out.println(is.available()); // 읽을 수 있는(남아 있는) 바이트 수를 리턴함
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
