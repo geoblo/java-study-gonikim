@@ -20,12 +20,12 @@ public class Hello { // 클래스 선언: 클래스 이름은 대문자로 시�
 	public static void main(String[] args) { // 메소드 선언
 		// 콘솔에 출력하는 실행문
 		System.out.println("Hello, Java");
-	
+	    
 		System.out.println("Hello, // /**/ Java"); // 문자열 내부에는 주석을 붙일 수 없다.		
-	}
-	
-}
-
+	}   
+	    
+}       
+        
 /* Eclipse 단축키 정리
 - 단축키 확인
 Window > Preference > General > Keys 메뉴에서 확인 가능
