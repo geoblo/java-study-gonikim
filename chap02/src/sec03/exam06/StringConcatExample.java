@@ -14,6 +14,10 @@ public class StringConcatExample {
 
 		String str3 = "10" + 2 + 8; // "102" + 8 -> "1028"
 		System.out.println("str3: " + str3);
+		
+		// Quiz: 연산의 결과가 "1010"이 나오려면
+		String str4 = "10" + (2 + 8); // ()는 최우선 연산
+		System.out.println("str4: " + str4);
 	}
 
 }
