@@ -1,5 +1,7 @@
 package sec02.exam04;
 
+import java.util.Scanner;
+
 public class ArithmeticOperatorExample {
 
 	public static void main(String[] args) {
@@ -31,12 +33,15 @@ public class ArithmeticOperatorExample {
 //		 55 => 50
 //		 60 => 60
 		
-		
-		
-		
-		
-		
-		
+		Scanner sc = new Scanner(System.in);
+
+        System.out.print("2자리 정수를 입력하세요: ");
+        int num = sc.nextInt();
+        
+        // 일의 자리 버리기
+//        int result = (num / 10) * 10;
+        int result = num - (num % 10);
+        System.out.println("출력: " + result);
 	}
 
 }
