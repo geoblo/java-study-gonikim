@@ -43,7 +43,7 @@ public class IncreaseDecreaseOperatorExample {
 		}
 		
 		System.out.println("-----------------------");
-		// Quiz2 - 개념 이해를 위한 퀴즈로 실무에서는 아래와 같이 쓰면 안됨 
+		// Quiz3 - 개념 이해를 위한 퀴즈로 실무에서는 아래와 같이 쓰면 안됨 
 		// 다음 코드 실행 후 a, b, result1, result2의 값은?
 		int a = 10;
 		int result1 = ++a + a++;
