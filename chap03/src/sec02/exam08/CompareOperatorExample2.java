@@ -1,5 +1,7 @@
 package sec02.exam08;
 
+import java.math.BigDecimal;
+
 public class CompareOperatorExample2 {
 
 	public static void main(String[] args) {
@@ -27,16 +29,18 @@ public class CompareOperatorExample2 {
 		// 정리: float 타입과 double 타입을 비교하도록 코드를 작성하지 않는 것이 좋음
 		// 실수 타입을 하나로 통일하는 것이 좋음(주로 double 타입 사용)
 		
+		// 0.1f ≈ 0.100000001490116119384765625
+		// 0.1(double) ≈ 0.1000000000000000055511151231257827
 		
+		BigDecimal v = new BigDecimal("0.1");
+		System.out.println(v);
 		
-		
-		
-		
-		
-		
-		
-		
-		
+		// (참고) 정밀도 테스트
+		double result = 7 * 0.1;
+		System.out.println(result);
+		// 부동소수점 방식에서 실수 연산을 하다보면 근사값이 나옴
+		// 1. 정수로 바꿔 계산해서 실수 타입으로 변환
+		// 2. 그냥 실수로 계산해서 반올림, 올림, 내림 등을 적절히 사용
 	}
 
 }
