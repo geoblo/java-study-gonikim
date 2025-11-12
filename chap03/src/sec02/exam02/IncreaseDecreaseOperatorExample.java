@@ -29,13 +29,26 @@ public class IncreaseDecreaseOperatorExample {
 		System.out.println("z=" + z);
 		System.out.println("x=" + x);
 		
+		System.out.println("------------------------------");
+		// Quiz1
+		// z, x, y의 값은?
+		z = ++x + y++;
 		
+		// 다음 코드 실행 후 x의 값은?
+		x = 3;
+
+		if (x++ == 3) {
+		    x++;
+		}
 		
+		System.out.println("-----------------------");
+		// Quiz2 - 개념 이해를 위한 퀴즈로 실무에서는 아래와 같이 쓰면 안됨 
+		// 다음 코드 실행 후 a, b, result1, result2의 값은?
+		int a = 10;
+		int result1 = ++a + a++;
 		
-		
-		
-		
-		
+		int b = 10;
+		int result2 = b++ + ++b; 
 		
 		
 		
