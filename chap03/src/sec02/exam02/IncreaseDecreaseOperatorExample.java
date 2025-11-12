@@ -34,6 +34,7 @@ public class IncreaseDecreaseOperatorExample {
 		// z, x, y의 값은?
 		z = ++x + y++;
 		
+		// Quiz2
 		// 다음 코드 실행 후 x의 값은?
 		x = 3;
 
