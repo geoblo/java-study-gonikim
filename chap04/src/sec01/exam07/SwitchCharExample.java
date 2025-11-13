@@ -24,9 +24,13 @@ public class SwitchCharExample {
 		
 		// Quiz
 		// 위 switch문을 if문으로 변경해 보세요.
-		
-		
-		
+		if (grade == 'A' || grade == 'a') {
+			System.out.println("우수 회원입니다.");
+		} else if (grade == 'B' || grade == 'b') {
+			System.out.println("일반 회원입니다.");
+		} else {
+			System.out.println("손님입니다.");
+		}
 	}
 
 }
