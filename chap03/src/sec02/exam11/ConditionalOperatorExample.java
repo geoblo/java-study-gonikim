@@ -1,5 +1,7 @@
 package sec02.exam11;
 
+import java.util.Scanner;
+
 public class ConditionalOperatorExample {
 
 	public static void main(String[] args) {
@@ -20,7 +22,18 @@ public class ConditionalOperatorExample {
 //		 50 => 불합격
 //		-10 => 점수입력오류
 		
-		
+		Scanner sc = new Scanner(System.in);
+
+        System.out.print("점수를 입력하세요: ");
+        score = sc.nextInt();
+        
+        String result = (score < 0 || score > 100) 
+        				? "점수입력오류" 
+        				: ((score >= 60) 
+        					? "합격" 
+        					: "불합격");
+        
+        System.out.println(result);
 	}
 
 }
