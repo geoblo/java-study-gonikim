@@ -1,5 +1,7 @@
 package sec02.exam10;
 
+import java.util.Scanner;
+
 public class AssignmentOperatorExample {
 
 	public static void main(String[] args) {
@@ -34,7 +36,30 @@ public class AssignmentOperatorExample {
 //		10원: 4개
 //		1원: 0개
 		
+		Scanner sc = new Scanner(System.in);
 		
+		System.out.print("금액을 입력하세요: ");
+		int amount = sc.nextInt();
+		
+		int coin500 = amount / 500;
+		amount %= 500;
+		
+		int coin100 = amount / 100;
+		amount %= 100;
+		
+		int coin50 = amount / 50;
+		amount %= 50;
+		
+		int coin10 = amount / 10;
+		amount %= 10;
+		
+		int coin1 = amount;
+		
+		System.out.println("500원: " + coin500 + "개");
+		System.out.println("100원: " + coin100 + "개");
+		System.out.println("50원: " + coin50 + "개");
+		System.out.println("10원: " + coin10 + "개");
+		System.out.println("1원: " + coin1 + "개");
 	}
 
 }
