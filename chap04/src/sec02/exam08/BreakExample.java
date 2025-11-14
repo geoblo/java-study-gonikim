@@ -21,12 +21,20 @@ public class BreakExample {
 //		[출력]
 //		45까지의 합: 1035
 		
-		
-		
-		
-		
-		
-		
+		int sum = 0;
+        int n = 1;
+        
+        while (true) {
+        	sum += n;
+        	
+        	if (sum > 1000) {
+        		break;
+        	}
+        	
+        	n++;
+        }
+        
+        System.out.println("1부터 " + n + "까지의 합: " + sum);
 	}
 
 }
