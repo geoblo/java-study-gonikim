@@ -1,5 +1,7 @@
 package sec02.exam10;
 
+import java.util.Scanner;
+
 public class ContinueExample {
 
 	public static void main(String[] args) {
@@ -26,7 +28,37 @@ public class ContinueExample {
 //		힌트: 
 //		- 문자열의 길이를 얻을 때는 length()를 사용, 예: str.length()
 		
-		
+		Scanner sc = new Scanner(System.in);
+
+        System.out.print("메시지를 입력하세요: ");
+        String msg = sc.nextLine();
+        
+        String result = "";
+        
+        // 반복문을 활용하여 공백을 만날 경우 다음 반복으로 넘어가기
+        for (int i = 0; i < msg.length(); i++) {
+			char ch = msg.charAt(i);
+			if (ch == ' ') {
+				continue; // 공백이면 건너뜀
+			}
+//			System.out.print(ch);
+			result += ch;
+		}
+        
+        System.out.println("보낼 메시지: " + result);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 		
 		
 		
