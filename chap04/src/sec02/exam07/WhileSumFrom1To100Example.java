@@ -1,5 +1,7 @@
 package sec02.exam07;
 
+import java.util.Scanner;
+
 public class WhileSumFrom1To100Example {
 
 	public static void main(String[] args) {
@@ -67,9 +69,18 @@ public class WhileSumFrom1To100Example {
 //		 123   =>  6
 //		 12345 =>  15
 		
-		
-		
-		
+		Scanner sc = new Scanner(System.in);
+
+        System.out.print("자연수를 입력하세요: ");
+        int num = sc.nextInt();
+        
+        sum = 0;
+        while (num > 0) {
+        	sum += num % 10; // 마지막 자리 수 더하기
+        	num /= 10; // 마지막 자리 제거
+        }
+        
+        System.out.println("각 자리수의 합: " + sum);
 	}
 
 }
