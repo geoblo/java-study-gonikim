@@ -2,14 +2,14 @@ package sec04.exam05;
 
 public class Car {
 	// 필드
-	int speed;
+	private int speed;
 	
 	// 생성자
 	
 	
 	// 메소드
 	// Getter
-	int getSpeed() {
+	public int getSpeed() {
 		return speed;
 	}
 	
