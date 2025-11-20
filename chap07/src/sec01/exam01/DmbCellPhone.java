@@ -13,6 +13,7 @@ public class DmbCellPhone extends CellPhone {
 		this.color = color; // 부모(CellPhone)로부터 물려받음
 		// (참고) 부모로부터 물려받았음을 보여주기 위함이며 일반적으로는 이렇게 초기화하지 않음
 		this.channel = channel;
+		System.out.println("DmbCellPhone() 호출됨");
 	}
 	
 	// 메소드
