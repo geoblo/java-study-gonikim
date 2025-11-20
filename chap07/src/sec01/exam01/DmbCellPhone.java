@@ -7,7 +7,13 @@ public class DmbCellPhone extends CellPhone {
 	int channel;
 	
 	// 생성자
-	
+	public DmbCellPhone(String model, String color, int channel) {
+//		super(); // 부모 생성자 호출(생략 시 자동으로 추가됨)
+		this.model = model; // 부모(CellPhone)로부터 물려받음
+		this.color = color; // 부모(CellPhone)로부터 물려받음
+		// (참고) 부모로부터 물려받았음을 보여주기 위함이며 일반적으로는 이렇게 초기화하지 않음
+		this.channel = channel;
+	}
 	
 	// 메소드
 	void turnOnDmb() {
