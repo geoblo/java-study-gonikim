@@ -1,4 +1,6 @@
-package homework.homework02;
+package homework.homework02.controller;
+
+import homework.homework02.model.Chocolate;
 
 public class ChocolateController {
 	private Chocolate c = new Chocolate();

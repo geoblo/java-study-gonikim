@@ -1,4 +1,4 @@
-package homework.homework02;
+package homework.homework02.model;
 
 public class Cake {
 	private double flour;

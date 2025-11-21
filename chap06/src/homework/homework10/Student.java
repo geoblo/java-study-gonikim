@@ -1,7 +1,7 @@
 package homework.homework10;
 
 public class Student {
-	// 방법1
+	// 방법1(권장)
 	private static int noCounter = 1;
     private final int studentNo; // 수정 불가능한 학번
     // 방법2
@@ -11,7 +11,7 @@ public class Student {
 	private String className;
 	
 	public Student() {
-		// 방법1
+		// 방법1(권장)
 		studentNo = noCounter++;
 		
 		// 방법2

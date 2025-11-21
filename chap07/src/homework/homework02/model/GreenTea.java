@@ -1,4 +1,4 @@
-package homework.homework02;
+package homework.homework02.model;
 
 public class GreenTea extends Cake {
 	private double powder;

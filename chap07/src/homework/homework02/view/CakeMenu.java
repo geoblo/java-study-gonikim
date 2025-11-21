@@ -1,6 +1,9 @@
-package homework.homework02;
+package homework.homework02.view;
 
 import java.util.Scanner;
+
+import homework.homework02.controller.ChocolateController;
+import homework.homework02.controller.GreenTeaContorller;
 
 public class CakeMenu {
 	private Scanner sc = new Scanner(System.in);

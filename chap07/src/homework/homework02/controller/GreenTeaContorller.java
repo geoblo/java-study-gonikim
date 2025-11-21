@@ -1,4 +1,6 @@
-package homework.homework02;
+package homework.homework02.controller;
+
+import homework.homework02.model.GreenTea;
 
 public class GreenTeaContorller {
 	private GreenTea gt = new GreenTea();
