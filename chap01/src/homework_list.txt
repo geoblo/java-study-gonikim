@@ -27,7 +27,8 @@ https://www.notion.so/239ef6e7ff1c802e9290e1f977cf0c21
 chap07. 상속 과제
 https://www.notion.so/239ef6e7ff1c800fa0d8e613799b33cc
 
-
+chap08. 다형성(클래스, 추상 클래스, 인터페이스) 과제 -> 3번까지만 풀어보기
+https://www.notion.so/239ef6e7ff1c8018be2efe0a0a7e1b2b
 
 
 
