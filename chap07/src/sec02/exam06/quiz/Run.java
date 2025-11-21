@@ -30,8 +30,22 @@ public class Run {
 	
 	public static void main(String[] args) {
 		// Quiz
+		SchoolMember[] schoolMembers = new SchoolMember[3];
+		schoolMembers[0] = new Student();
+		schoolMembers[1] = new Teacher();
+		schoolMembers[2] = new Staff();
 		
-		
+		for (SchoolMember member : schoolMembers) {
+			member.introduce();
+			
+			if (member instanceof Student student) {
+				student.study();
+			} else if (member instanceof Teacher teacher) {
+				teacher.teach();
+			} else if (member instanceof Staff staff) {
+				staff.work();
+			}
+		}
 	}
 
 }
