@@ -40,7 +40,16 @@ public class Run {
 		
 		for (Animal animal : animalArr) {
 			// Quiz
+			System.out.println(animal.getKind() + ", 다리수: " + animal.getLeg() + "개");
+			animal.sound();
+			animal.eat();
 			
+			// 타입으로 Eagle을 쓰면 독수리만 가능
+			// 근데 fly()라는 날 수 있는 기능은 독수리 뿐만 아니라
+			// Flyable을 구현한 날 수 있는 동물들은 다 가지고 있으므로 Flyable 타입을 사용
+			if (animal instanceof Flyable flyAnimal) {
+				flyAnimal.fly();
+			}
 		}
 	}
 
