@@ -6,22 +6,22 @@ public class MyClassExample {
 		// Quiz: 어떤 구현 객체가 실행될지 맞춰보기
 		System.out.println("1)----------------");
 		
-		MyClass myClass1 = new MyClass();
+		MyClass myClass1 = new MyClass(); // TV
 		myClass1.rc.turnOn();
 		myClass1.rc.setVolume(5);
 		
 		System.out.println("2)----------------");
 		
-		MyClass myClass2 = new MyClass(new Audio()); 
+		MyClass myClass2 = new MyClass(new Audio()); // Audio
 		
 		System.out.println("3)----------------");
 		
-		MyClass myClass3 = new MyClass();
+		MyClass myClass3 = new MyClass(); // Audio
 		myClass3.methodA();
 		
 		System.out.println("4)----------------");
 		
-		MyClass myClass4 = new MyClass();
+		MyClass myClass4 = new MyClass(); // TV
 		myClass4.methodB(new Television());
 	}
 
