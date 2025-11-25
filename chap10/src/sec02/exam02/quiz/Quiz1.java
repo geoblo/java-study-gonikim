@@ -1,5 +1,7 @@
 package sec02.exam02.quiz;
 
+import java.util.Scanner;
+
 public class Quiz1 {
 	// Quiz
 //	Calculator 클래스 안에는 두 개의 정수형 숫자를 매개변수로 사용하는 메소드가 3개 있습니다.
@@ -34,7 +36,25 @@ public class Quiz1 {
 	
 	public static void main(String[] args) {
 		// Quiz
+		Scanner sc = new Scanner(System.in);
 		
+		System.out.print("첫번째 숫자: ");
+		int a = sc.nextInt();
+		System.out.print("두번째 숫자: ");
+		int b = sc.nextInt();
+		
+		// Calculator 클래스의 3개 메소드를 실행
+		Calculator calc = new Calculator();
+		System.out.println("합: " + calc.add(a, b));
+		System.out.println("곱: " + calc.multiple(a, b));
+		try {
+			// 예외 발생 가능한 코드(try 범위는 가능한 최소화 하는게 의도가 명확함)
+			System.out.println("나누기: " + calc.divide(a, b));
+		} catch (ArithmeticException e) {
+			System.out.println("나누기 중 부적절한 연산이 발생했습니다.");
+		} finally {
+			System.out.println("마지막까지 잘 도착했어요!!");
+		}
 		
 	}
 
