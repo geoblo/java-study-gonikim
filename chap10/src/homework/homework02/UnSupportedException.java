@@ -1,0 +1,17 @@
+package homework.homework02;
+
+public class UnSupportedException extends RuntimeException {
+	public UnSupportedException() {
+//		super("원인을 알 수 없는 오류가 발생했습니다.");
+	}
+	
+	public UnSupportedException(String message) {
+		super(message);
+	}
+	
+	// getMessage() 오버라이딩
+	@Override
+	public String getMessage() {
+		return "원인을 알 수 없는 오류가 발생했습니다.";
+	}
+}
