@@ -40,12 +40,18 @@ public class Run {
 	
 	public static void main(String[] args) {
 		// Quiz
+		Account account = new Account("김철수", 10000);
 		
+		try {
+			account.withdraw(3000);
+			account.deposit(5000);
+			account.withdraw(14000);
+		} catch (InsufficientBalanceException e) {
+			System.out.println("출금 실패: " + e.getMessage());
+		}
 		
-		
-		
-		
-		
+		// 남은 잔액 출력
+		System.out.println("현재 잔액: " + account.getBalance() + "원");
 	}
 
 }
