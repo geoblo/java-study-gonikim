@@ -13,13 +13,13 @@ public class Run {
 		Student s2 = new Student(100, "홍길동", "컴공"); // 복수전공
 		Student s3 = new Student(200, "홍길동", "컴공"); // 동명이인
 		
-		if (s1.equals(s2)) {
+		if (s1.hashCode() == s2.hashCode() && s1.equals(s2)) {
 			System.out.println(s1 + "과 " + s2 + "학생은 같은 학생입니다.");
 		} else {
 			System.out.println(s1 + "과 " + s2 + "학생은 다른 학생입니다.");
 		}
 		
-		if (s2.equals(s3)) {
+		if (s2.hashCode() == s3.hashCode() && s2.equals(s3)) {
 			System.out.println(s2 + "과 " + s3 + "학생은 같은 학생입니다.");
 		} else {
 			System.out.println(s2 + "과 " + s3 + "학생은 다른 학생입니다.");
