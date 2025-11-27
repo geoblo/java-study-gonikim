@@ -1,5 +1,7 @@
 package sec01.exam27;
 
+import java.util.Scanner;
+
 public class MathExample {
 
 	public static void main(String[] args) {
@@ -58,10 +60,14 @@ public class MathExample {
 		// 소수점 이하 특정 자리에서 반올림하기
 		double value = 12.3456;
 		// Quiz: 사용자에게 몇째 자리에서 반올림 할지 입력 받아 처리
-		// 예: 3을 입력 -> 소수점 셋째 자리에서 반올림
-		
-		
-		
+		// 예: 3을 입력 -> 소수점 셋째 자리에서 반올림 -> 12.35 출력
+		Scanner sc = new Scanner(System.in);
+        System.out.print("몇째 자리에서 반올림할까요? ");
+        int place = sc.nextInt();
+        
+        double scale = Math.pow(10, place - 1);
+        double result = Math.round(value * scale) / scale;
+        System.out.println(result);
 
 	}
 
