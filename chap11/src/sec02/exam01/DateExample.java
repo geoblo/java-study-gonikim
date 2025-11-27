@@ -33,10 +33,16 @@ public class DateExample {
 		// Quiz
 		// 아래와 같이 출력되도록 날짜 포맷을 지정하세요.
 		// 25년 8월 4일 월요일 14시 5분 8초 137
+		sdf = new SimpleDateFormat("yy년 M월 d일 EEEE H시 m분 s초 S");
+		String strNow2 = sdf.format(now);
+		System.out.println(strNow2);
 		
 		
-		
-		
+		// 참고: 자바 8 이후 권장 방식(java.time API)
+		// Date 대신 LocalDate, LocalDateTime 등을 사용 권장
+		// SimpleDateFormat 대신 DateTimeFormatter 사용 권장
+		// 훨씬 더 안전하고 직관적이며 사용성이 좋음
+		// 날짜/시간 조작, 포맷팅, 시간대 처리 모두 쉽고 명확함
 		
 		
 		
