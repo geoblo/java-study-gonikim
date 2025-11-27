@@ -54,6 +54,14 @@ public class MathExample {
 		System.out.println(Math.pow(2, 3));   // 8.0
 		System.out.println(Math.pow(5, 0));   // 1.0
 		System.out.println(Math.pow(9, 0.5)); // 3.0(루트)
+		
+		// 소수점 이하 특정 자리에서 반올림하기
+		double value = 12.3456;
+		// Quiz: 사용자에게 몇째 자리에서 반올림 할지 입력 받아 처리
+		// 예: 3을 입력 -> 소수점 셋째 자리에서 반올림
+		
+		
+		
 
 	}
 
