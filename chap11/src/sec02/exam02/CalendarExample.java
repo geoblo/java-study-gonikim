@@ -1,8 +1,13 @@
 package sec02.exam02;
 
 import java.time.DayOfWeek;
+import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Period;
 import java.time.format.TextStyle;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -93,18 +98,73 @@ public class CalendarExample {
 		
 		System.out.println("==========================");
 		
+		// 날짜 더하기/빼기
+		LocalDateTime plusDays = now2.plusDays(3);
+		System.out.println("3일 후: " + plusDays);
+		// plus-, minus- 관련 자동 완성으로 다양한 메소드 확인
 		
+		System.out.println("==========================");
 		
+		// 날짜/시간 비교
+		// 날짜 비교
+		LocalDate today = LocalDate.now();
+		LocalDate targetDate = LocalDate.of(2025, 12, 25); // 2025년 12월 25일
 		
+		if (today.isBefore(targetDate)) { // 지정한 날짜/시간보다 이전인지
+			System.out.println("오늘은 크리스마스 전입니다.");
+		} else if (today.isAfter(targetDate)) { // 지정한 날짜/시간보다 이후인지
+			System.out.println("오늘은 크리스마스 이후입니다.");			
+		} else { // isEqual()
+			System.out.println("오늘은 크리스마스입니다!");
+		}
 		
+		// 시간 비교
+		LocalDateTime todayTime = LocalDateTime.now();
+		LocalDateTime deadline = LocalDateTime.of(2025, 11, 27, 15, 0); // 2025년 11월 27일 오후 2시
 		
+		if (todayTime.isBefore(deadline)) {
+			System.out.println("마감 시간 전입니다. 작업을 계속하세요.");			
+		} else if (todayTime.isAfter(deadline)) {
+			System.out.println("마감 시간이 지났습니다. 제출을 마갑합니다.");			
+		} else {
+			System.out.println("지금이 마감 시간입니다!");
+		}
 		
+		System.out.println("==========================");
 		
+		// 날짜/시간 차이 구하기
+		// 날짜 차이
+		LocalDate startDate = LocalDate.of(2025, 4, 7);
+		LocalDate endDate = LocalDate.of(2025, 10, 24);
 		
+		// 날짜 차이 계산
+		// Period 클래스: 두 날짜 사이의 간격을 다루는 클래스
+		Period period = Period.between(startDate, endDate);
 		
+		System.out.println("연 차이: " + period.getYears());
+		System.out.println("월 차이: " + period.getMonths());
+		System.out.println("일 차이: " + period.getDays());
 		
+		System.out.println("==========================");
 		
+		// 시간 차이
+		LocalTime start = LocalTime.of(10, 0, 0); // 10시 0분 0초
+		LocalTime end = LocalTime.of(10, 5, 30); // 10시 5분 30초
 		
+		// 시간 차이 계산
+		// Duration: 두 시간 사이의 간격을 다루는 클래스
+		Duration duration = Duration.between(start, end);
+		
+		System.out.println("총 초: " + duration.getSeconds());
+		System.out.println("총 분: " + duration.toMinutes());
+		
+		System.out.println("==========================");
+		
+		// 차이 계산: ChronoUnit
+		// 두 날짜/시간 사이의 차이를 원하는 단위로 바로 계산
+		long dayBetween = ChronoUnit.DAYS.between(startDate, endDate);
+		System.out.println("전체 일수 차이: " + dayBetween + "일");
+		// 사용 가능한 단위: DAYS, WEEKS, MONTHS, YEARS 등등
 		
 	}
 
