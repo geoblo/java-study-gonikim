@@ -2,6 +2,7 @@ package sec01.exam02;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class StudentListExample {
@@ -52,28 +53,26 @@ public class StudentListExample {
 			System.out.println(student);
 		}
 		
+		// 2. Comparator 사용
+		// 구현 객체 사용
+		studentList.sort(new AgeComparatorImpl());
 		
+		// 익명 구현 객체 사용
+		studentList.sort(new Comparator<Student>() {
+			@Override
+			public int compare(Student o1, Student o2) {
+				return o1.getAge() - o2.getAge();
+			}
+		});
 		
+		// 람다식으로 리팩터링
+		studentList.sort((o1, o2) -> {
+			return o1.getAge() - o2.getAge();
+		});
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		for (Student student : studentList) {
+			System.out.println(student);
+		}
 		
 	}
 
