@@ -1,5 +1,6 @@
 package sec01.exam05;
 
+import java.util.HashSet;
 import java.util.Set;
 
 // HashSet은 가장 기본적인 Set의 구현체
@@ -29,7 +30,34 @@ public class HashSetExample {
 		// 버킷 123456에 이미 객체가 있음
 		// 그 객체와 equals() 비교 -> true -> 중복으로 판단 -> 저장 안 함
 		
-		Set<E>
+//		Set<String> set = new HashSet<String>();
+		Set<String> set = new HashSet<>(); // 생략하면 왼쪽 Set에 지정된 타입을 따라 감(타입 추론)
+		
+		// 객체 추가
+		// 추가할 때마다 중복 확인(hashCode()와 equals() 호출) 후 추가함
+		// 기존에 같은 객체가 없을 때만 저장하고 true 반환
+		set.add("Java");
+		set.add("JDBC");
+		set.add("Servlet/JSP");
+		set.add("Java"); // 중복 저장 안됨
+		set.add("iBATIS");
+		
+		// Set 출력하기
+		System.out.println(set);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
