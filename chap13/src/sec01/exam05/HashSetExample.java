@@ -1,8 +1,12 @@
 package sec01.exam05;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 // HashSet은 가장 기본적인 Set의 구현체
@@ -104,18 +108,85 @@ public class HashSetExample {
 		}
 		System.out.println();
 		
+		// HashSet과 집합
+		// 수학의 집합을 효율적으로 처리하기에 적합한 구조
+		// 두 집합의 합집합, 교집합, 차집합, 부분집합 연산 가능
+		Set<Integer> class1 = new HashSet<Integer>();
+		class1.add(1);
+		class1.add(2);
+		class1.add(3);
+		Set<Integer> class2 = new HashSet<Integer>();
+		class2.add(2);
+		class2.add(3);
+		class2.add(4);
 		
+		// 집합과 관련된 메소드들
+		// Collection에 변화가 있으면 true, 아니면 false를 반환
 		
+		// 합집합
+		// 두 개의 HashSet을 하나로 합쳐줌
+		// 이때 두 개의 HashSet에 공통적으로 포함된 데이터는 제거
+//		System.out.println(class1.addAll(class2));
+//		System.out.println("합집합: " + class1);
 		
+		// 교집합
+		// 두 개의 HashSet에서 공통된 요소만 추려줌
+//		System.out.println(class1.retainAll(class2));
+//		System.out.println("교집합: " + class1);
+
+		// 차집합
+		// 기준 HashSet에서 대상 HashSet과의 교집합 제외
+//		System.out.println(class1.removeAll(class2));
+//		System.out.println("차집합: " + class1);
 		
+		// 주의: 위 3개의 메소드 모두 기준이 되는 HashSet의 데이터 자체를 바꿔버림
+		// 새로운 HashSet을 반환하는 것이 아님!!
 		
+		// 부분집합
+		// 기준 HashSet에 대상 HashSet의 요소들이 포함되어 있는지 확인
+		System.out.println(class1.containsAll(class2));
+		System.out.println("부분집합: " + class1);
+		System.out.println();
 		
+		// 요소 정렬
+		// HashSet 자체는 정렬 기능이 없는 컬렉션이기 때문에,
+		// 정렬을 하려면 다른 컬렉션으로 변환한 뒤 정렬
+		// List로 변환 후 Collections.sort() 또는 List.sort() 사용
+		Set<String> fruits = new HashSet<String>();
+		fruits.add("Banana");
+		fruits.add("Apple");
+		fruits.add("Orange");
+		System.out.println(fruits);
+//		Collections.sort(fruits); // 불가(List 계열만 가능)
+//		fruits.sort(); // 불가
 		
+		// Set -> List로 변환
+		List<String> fruitsList = new ArrayList<String>(fruits);
 		
+		// 정렬
+		Collections.sort(fruitsList); // 오름차순 정렬
+		System.out.println(fruitsList);
+//		fruitsList.sort(); // Comparator로 정렬 기준을 제공하면 정렬 가능
 		
+		// 필요하면 정렬된 순서를 유지하는 Set으로 다시 변환
+		Set<String> sortedSet = new LinkedHashSet<String>(fruitsList);
+		System.out.println(sortedSet);
 		
+		// Set 활용 팁: ArrayList의 요소에서 중복 제거하기
+		List<String> list = new ArrayList<String>();
+		list.add("Java");
+		list.add("Spring");
+		list.add("Java"); // 중복
+		list.add("JDBC");
+		System.out.println(list);
 		
+		// HashSet을 이용해 중복 제거
+		Set<String> javaClass = new HashSet<String>(list); // 중복 제거 완료
+		System.out.println(javaClass);
 		
+		// 필요 시 다시 List로 변환
+		List<String> dedupList = new ArrayList<String>(javaClass);
+		System.out.println(dedupList);
 		
 	}
 
