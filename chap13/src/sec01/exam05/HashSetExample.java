@@ -1,6 +1,8 @@
 package sec01.exam05;
 
+import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 // HashSet은 가장 기본적인 Set의 구현체
@@ -45,10 +47,62 @@ public class HashSetExample {
 		// Set 출력하기
 		System.out.println(set);
 		
+		// 저장된 총 객체 수 얻기
+		int size = set.size();
+		System.out.println("총 객체수: " + size);
 		
+		// Iterable과 Iterator - 컬렉션 조회 방법의 표준화(=인터페이스)
+		// 여러 종류의 컬렉션(Iterable)을 같은 방법(Iterator)으로 읽을 수 있음
 		
+		// Iterator(반복자)로 모든 요소를 하나씩 가져오기
+		// 컬렉션의 요소를 하나씩 순회할 수 있도록 도와주는 인터페이스
+		// 타입 파라미터는 저장된 객체와 동일하게 작성
+		Iterator<String> iterator = set.iterator(); // iterator 구현 객체를 반환
+		while (iterator.hasNext()) { // 다음 요소가 있는지 확인
+			// 저장된 객체 수 만큼 반복
+			String element = iterator.next(); // 1개의 요소를 읽어옴
+			System.out.println("\t" + element);
+			
+			// remove(): next()로 반환한 요소를 제거
+			if ("Java".equals(element)) {
+				iterator.remove();
+//				iterator.remove();	
+				// 참고: remove()는 next() 호출 이후에만 호출 가능하며, 한 번만 가능
+			}
+		}
+		System.out.println(set);
+		System.out.println();
 		
+		// 객체 삭제
+		// index를 가지고 있는 List와 다르게 index가 없음
+		// 객체의 hashCode()와 equals()를 기준으로 판단
+		set.remove("JDBC");
+		set.remove("iBATIS");
 		
+		System.out.println("총 객체수: " + set.size());
+		
+		// 향상된 for문으로 모든 객체를 하나씩 가져오기
+		// 순서 즉, 인덱스가 없으므로 일반 for문 사용 불가
+		// 당연히 get()과 같은 메소드도 사용 불가
+		for (String element : set) {
+			System.out.println("\t" + element);
+		}
+		System.out.println();
+		
+		// 객체 검색
+		if (!set.isEmpty()) { // 컬렉션이 비어 있는지 조사
+			// 주어진 객체가 저장되어 있는지 조사
+			System.out.println("Java 있니? " + set.contains("Java"));
+			System.out.println("Servlet/JSP 있니? " + set.contains("Servlet/JSP"));
+		}
+		System.out.println();
+		
+		// 모든 객체를 제거하고 비움
+		set.clear();
+		if (set.isEmpty()) {
+			System.out.println("비어 있음");
+		}
+		System.out.println();
 		
 		
 		
