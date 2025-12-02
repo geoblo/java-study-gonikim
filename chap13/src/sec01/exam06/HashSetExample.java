@@ -58,12 +58,19 @@ public class HashSetExample {
 		// ArrayList의 요소에서 중복 제거하기
 		List<Member> memList = new ArrayList<Member>();
 		memList.add(new Member("김재현", 30));
-		members.add(new Member("이수진", 25));
-		members.add(new Member("박민수", 40));
+		memList.add(new Member("이수진", 25));
+		memList.add(new Member("박민수", 40));
 		memList.add(new Member("김재현", 30)); // 중복
-		members.add(new Member("이수진", 25)); // 중복
+		memList.add(new Member("이수진", 25)); // 중복
 		
+		// Quiz
+		Set<Member> memSet = new HashSet<Member>(memList);
+		List<Member> dedupList = new ArrayList<Member>(memSet);
 		
+		System.out.println("중복 제거된 리스트:");
+		for (Member member : dedupList) {
+			System.out.println("\t" + member);
+		}
 		
 		
 		
