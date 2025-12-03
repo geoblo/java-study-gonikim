@@ -25,16 +25,31 @@ public class HashtableExample {
 			String password = sc.nextLine();
 			System.out.println();
 			
-			if (map.containsKey(id)) {
-				if (map.get(id).equals(password)) {
-					System.out.println("로그인 되었습니다.");
-					break;
-				} else {
-					System.out.println("비밀번호가 일치하지 않습니다.");
-				}
-			} else {
+//			if (map.containsKey(id)) {
+//				if (map.get(id).equals(password)) {
+//					System.out.println("로그인 되었습니다.");
+//					break;
+//				} else {
+//					System.out.println("비밀번호가 일치하지 않습니다.");
+//				}
+//			} else {
+//				System.out.println("입력하신 아이디가 존재하지 않습니다.");
+//			}
+			
+			// Early Return Pattern으로 변경
+			if (!map.containsKey(id)) {
 				System.out.println("입력하신 아이디가 존재하지 않습니다.");
+				continue;
 			}
+			
+			if (!map.get(id).equals(password)) {
+				System.out.println("비밀번호가 일치하지 않습니다.");
+				continue;
+			}
+			
+			System.out.println("로그인 되었습니다.");
+			break;
+			
 		}
 	}
 
