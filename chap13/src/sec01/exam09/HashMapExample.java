@@ -90,7 +90,11 @@ public class HashMapExample {
 		Set<Entry<String, Integer>> entrySet = map.entrySet();
 		
 		System.out.println("Iterator 사용");
-		Iterator<Entry<String, Integer>> entryIterator = entrySet.iterator();
+//		Iterator<Entry<String, Integer>> entryIterator = entrySet.iterator();
+		var entryIterator = entrySet.iterator(); // (참고) 지역 변수 타입 추론(Java 10)
+		// 변수의 타입을 컴파일러가 자동으로 추론하도록 해주는 키워드
+		// 남발하면 코드만 보고 타입을 명확히 알 수 없어 오히려 가독성이 떨어짐
+		// 사용 예: 제네릭 타입이 긴 경우
 		
 		while (entryIterator.hasNext()) {
 			// 반복해서 Entry 객체를 얻고 키와 값을 얻어냄
@@ -119,11 +123,29 @@ public class HashMapExample {
 		// Iterator.remove()는 ConcurrentModificationException 없이 안전하게 삭제 가능
 		// 반면 for-each에서 map.remove()를 쓰면 오류 발생
 		
+		// 객체 검색
+		// Key와 Value를 기준으로 특정키나 특정값의 포함 여부를 판단할 수 있음
 		
+		// 특정키가 있는지 확인
+		String keyToCheck = "김재현";
+		if (map.containsKey(keyToCheck)) {
+			System.out.println(keyToCheck + " 키가 존재합니다.");
+		} else {
+			System.out.println(keyToCheck + " 키가 존재하지 않습니다.");			
+		}
 		
+		// 특정값이 있는지 확인
+		int valueToCheck = 80;
+		if (map.containsValue(valueToCheck)) {
+			System.out.println(valueToCheck + " 값이 존재합니다.");
+		} else {
+			System.out.println(valueToCheck + " 값이 존재하지 않습니다.");			
+		}
+		System.out.println();
 		
-		
-		
+		// 객체 전체 삭제
+		map.clear(); // 모든 Entry 삭제
+		System.out.println("총 Entry 수: " + map.size());
 		
 	}
 
