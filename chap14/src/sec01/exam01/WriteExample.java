@@ -38,6 +38,11 @@ public class WriteExample {
 			byte b = 20;
 			byte c = 30;
 			
+			// 테스트: 한글 문자 출력
+//			char a = '가'; // 44032 -> 10101100 00000000
+//			char b = '나'; // 10110000 10011000
+//			char c = '다';
+			
 			// 출력 스트림을 이용해 출력하는 메소드
 			// 참고: 매개변수가 int 타입인 이유? byte로 받으면 -128~127 이므로
 			os.write(a);
@@ -66,20 +71,20 @@ public class WriteExample {
 		// 리소스를 자동으로 닫아주는 try 문법
 		// close()를 명시적으로 호출하지 않아도, try 블록이 끝나거나 예외가 발생되는 즉시 자동으로 자원 정리
 		// AutoCloseable을 구현한 클래스는 try-with-resources로 자동 닫기 가능
-		try (OutputStream os2 = new FileOutputStream("C:/Temp/test1.txt")) {
-			byte a = 10; // 실제로는 00001010 이라는 1바이트가 저장됨
-			byte b = 20;
-			byte c = 30;
-			
-			os2.write(a);
-			os2.write(b);
-			os2.write(c);
-			
-			os2.flush();
-			System.out.println("저장 완료");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		try (OutputStream os2 = new FileOutputStream("C:/Temp/test1.txt")) {
+//			byte a = 10; // 실제로는 00001010 이라는 1바이트가 저장됨
+//			byte b = 20;
+//			byte c = 30;
+//			
+//			os2.write(a);
+//			os2.write(b);
+//			os2.write(c);
+//			
+//			os2.flush();
+//			System.out.println("저장 완료");
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		
 	}
 
