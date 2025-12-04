@@ -1,5 +1,10 @@
 package sec01.exam01;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
 // 입출력 스트림이란?
 // Stream(스트림): 개울(시내), 흐르다 = 마치 물과 같이 데이터가 흘러서 지나감
 // 데이터를 연속된 흐름으로 읽고/쓰는 것으로 입출력 할 수 있게 도와주는 클래스
@@ -22,6 +27,59 @@ package sec01.exam01;
 public class WriteExample {
 
 	public static void main(String[] args) {
+		// 데이터 도착지를 test1.txt 파일로 하는 바이트 기반 파일 출력 스트림을 생성
+		OutputStream os = null;
+		try {
+			os = new FileOutputStream("C:/Temp/test1.txt"); // 바이트를 파일에 출력해서 저장하는 기능을 가짐
+			
+			// 출력할 수 있는 바이트의 범위는? 1바이트니까 0~255까지
+			// 값의 범위를 넘어가면 오버플로우, 언더플로우 발생!
+			byte a = 10; // 실제로는 00001010 이라는 1바이트가 저장됨
+			byte b = 20;
+			byte c = 30;
+			
+			// 출력 스트림을 이용해 출력하는 메소드
+			// 참고: 매개변수가 int 타입인 이유? byte로 받으면 -128~127 이므로
+			os.write(a);
+			os.write(b);
+			os.write(c);
+			// write()를 한다고 해서 바로 출력 스트림을 통해 데이터가 흘러가는 것이 아님
+			// 버퍼(임시 저장 공간)에 쌓임
+			// 버퍼: 물건을 잠시 담아두는 창고
+			// 출력 스트림: 물건을 외부로 보내는 트럭
+			
+			// 반드시 write() 후에 flush() 수행
+			os.flush(); // 버퍼를 비움(버퍼에 쌓여있는 데이터를 한꺼번에 출력)
+			System.out.println("저장 완료");
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				os.close(); // 출력 스트림이 사용했던 자원들(메모리)을 풀어주기 위해
+				// 참고: close() 안에서도 스트림을 닫기 전에 flush() 기능을 수행함
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		// 중요: try-with-resources
+		// 리소스를 자동으로 닫아주는 try 문법
+		// close()를 명시적으로 호출하지 않아도, try 블록이 끝나거나 예외가 발생되는 즉시 자동으로 자원 정리
+		// AutoCloseable을 구현한 클래스는 try-with-resources로 자동 닫기 가능
+		try (OutputStream os2 = new FileOutputStream("C:/Temp/test1.txt")) {
+			byte a = 10; // 실제로는 00001010 이라는 1바이트가 저장됨
+			byte b = 20;
+			byte c = 30;
+			
+			os2.write(a);
+			os2.write(b);
+			os2.write(c);
+			
+			os2.flush();
+			System.out.println("저장 완료");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
