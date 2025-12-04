@@ -1,5 +1,9 @@
 package sec01.exam10.quiz;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+
 public class Quiz1 {
 //	Quiz
 //	FileWriter를 사용하여 
@@ -10,9 +14,16 @@ public class Quiz1 {
 //  힌트: 줄바꿈하는 방법 "\r\n" 또는 "\n"
 	
 	public static void main(String[] args) {
+		String[] lines = {"첫 번째 줄입니다.", "두 번째 줄입니다.", "세 번째 줄입니다."};
 		
-		
-		
+		try (Writer writer = new FileWriter("C:/Temp/output.txt")) {
+			for (String line : lines) {
+				writer.write(line + "\n");
+			}
+			writer.flush(); // 생략 가능, close() 시 자동 flush
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
