@@ -22,13 +22,19 @@ public class ReadLineExample {
 		System.out.println();
 		
 		// Quiz: ReadLineExample.java 파일을 읽어 콘솔에 출력해보기
+		BufferedReader br2 = new BufferedReader(
+				new FileReader("src/sec02/exam03/ReadLineExample.java")
+		);
 		
+		int lineNo = 1;
+		while (true) {
+			String data = br2.readLine();
+			if (data == null) break;
+			System.out.println(lineNo + " " + data);
+			lineNo++;
+		}
 		
-		
-		
-		
-		
-		
+		br2.close();
 		
 	}
 
