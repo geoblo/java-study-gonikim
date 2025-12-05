@@ -1,5 +1,7 @@
 package sec02.exam02;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -17,22 +19,29 @@ public class BufferExample {
 		FileInputStream fis = new FileInputStream(originalFilePath1);
 		FileOutputStream fos = new FileOutputStream(targetFilePath1);
 		
-		
 		// 버퍼가 있는 버퍼 보조 스트림을 적용한 코드
+		String originalFilePath2 = BufferExample.class.getResource("originalFile2.jpg").getPath();
+		String targetFilePath2 = "C:/Temp/targetFile2.jpg";
 		
+		FileInputStream fis2 = new FileInputStream(originalFilePath2);
+		BufferedInputStream bis = new BufferedInputStream(fis2);
 		
+		FileOutputStream fos2 = new FileOutputStream(targetFilePath2);
+		BufferedOutputStream bos = new BufferedOutputStream(fos2);
 		
 		// 기본 스트림 이용해서 복사
 		long nonBufferTime = copy(fis, fos);
 		System.out.println("버퍼를 사용하지 않았을 때:\t" + nonBufferTime + "ns");
 		
 		// 버퍼 보조 스트림 이용해서 복사
-		
+		long bufferTime = copy(bis, bos);
+		System.out.println("버퍼를 사용했을 때:\t\t" + bufferTime + "ns");
 		
 		fis.close();
 		fos.close();
-		
-		
+		bis.close();
+		bos.close();
+		// 보조 스트림만 닫아도 내부에 연결된 기본 스트림까지 자동으로 닫힘
 	}
 	
 	// 입력 스트림에서 데이터를 읽고 출력 스트림으로 데이터를 보내는 코드(데이터를 복사하는 코드)
