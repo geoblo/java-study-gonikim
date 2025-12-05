@@ -1,5 +1,8 @@
 package sec03.exam03.quiz;
 
+import java.io.File;
+import java.io.IOException;
+
 public class Quiz2 {
 //	Quiz
 //	먼저 "C:/test/sub" 폴더 아래에 test1.txt, test2.txt, test3.txt 파일을 만들어주세요.
@@ -16,7 +19,24 @@ public class Quiz2 {
 //	C:\test\sub\test3.txt -> 삭제 완료
 	
 	public static void main(String[] args) {
+		File test1 = new File("C:/test/sub/test1.txt");
+		File test2 = new File("C:/test/sub/test2.txt");
+		File test3 = new File("C:/test/sub/test3.txt");
 		
+		// 파일 생성
+		try {
+			if (!test1.exists()) test1.createNewFile();
+			if (!test2.exists()) test2.createNewFile();
+			if (!test3.exists()) test3.createNewFile();
+		} catch (IOException e) {
+			System.out.println("파일 생성 중 오류 발생");
+		}
+		
+		// 폴더 내 모든 파일 삭제
+		FileManager fileManager = new FileManager();
+		
+		File dir = new File("C:/test/sub");
+		fileManager.deleteFiles(dir);
 	}
 
 }

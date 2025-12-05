@@ -1,5 +1,9 @@
 package sec03.exam03.quiz;
 
+import java.io.File;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Quiz1 {
 //	Quiz
 //	C 드라이브 아래에 test/sub 폴더를 생성하는데
@@ -18,9 +22,32 @@ public class Quiz1 {
 //	이미 존재하는 폴더
 	
 	public static void main(String[] args) {
+		LocalDate today = LocalDate.now();
 		
+		String basePath = "C:/test/sub/";
+
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+//		String subPath = today.format(formatter);
 		
+		// 또 다른 방법
+		// %d: 정수를 그대로 출력 (예: 2025)
+		// %02d: 2자리 정수 출력 + 한 자리일 경우 앞을 0으로 채움 (예: 3 -> 03)
+		String subPath = String.format("%d/%02d/%02d", 
+										today.getYear(), 
+										today.getMonthValue(), 
+										today.getDayOfMonth());
 		
+		File dir = new File(basePath + subPath);
+		
+		if (!dir.exists()) {
+			if (dir.mkdirs()) {
+				System.out.println("폴더 생성 성공");
+			} else {
+				System.out.println("폴더 생성 실패");				
+			}
+		} else {
+			System.out.println("이미 존재하는 폴더");
+		}
 	}
 
 }
