@@ -1,5 +1,6 @@
 package sec02.exam01;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -19,7 +20,8 @@ public class CharacterConvertStreamExample {
 	public static void main(String[] args) {
 		try {
 			write("문자 변환 스트림을 사용합니다.");
-			String data = read();
+//			String data = read();
+			String data = read2();
 			System.out.println(data);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -52,7 +54,16 @@ public class CharacterConvertStreamExample {
 		return data;
 	}
 	
-	
-	
+	// 편의를 위한 추가 보조 스트림
+	public static String read2() throws IOException {
+		InputStream is = new FileInputStream("C:/Temp/test1.txt"); // 바이트 기반 파일 입력 스트림
+		Reader reader = new InputStreamReader(is, "UTF-8"); // 문자 기반 입력 보조 스트림을 연결
+		BufferedReader br = new BufferedReader(reader); // Reader에만 연결 가능
+		
+		String data = br.readLine(); // 한 줄을 읽어 문자열로 변환해줌
+		br.close();
+		
+		return data;
+	}
 
 }
