@@ -58,7 +58,7 @@ public class StudentListExample {
 		studentList.sort(new AgeComparatorImpl());
 		
 		// 익명 구현 객체 사용
-		studentList.sort(new Comparator<Student>() {
+		studentList.sort(new Comparator<Student>() { // 익명 클래스의 선언과 객체 생성을 동시에
 			@Override
 			public int compare(Student o1, Student o2) {
 				return o1.getAge() - o2.getAge();
