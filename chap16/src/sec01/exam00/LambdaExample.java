@@ -19,21 +19,21 @@ public class LambdaExample {
 	void printVar(String name, int i) {
 		System.out.println(name + "=" + i);
 	}
+	// 람다식2
+//	(name, i) -> System.out.println(name + "=" + i)
 	
 	// 메소드3
 	int square(int x) {
 		return x * x;
 	}
+	// 람다식3
+//	x -> x * x
 	
 	// 메소드4
 	int roll() {
 		return (int) (Math.random() * 6);
 	}
-	
-	
-	
-	
-	
-	
+	// 람다식4
+//	() -> (int) (Math.random() * 6)
 	
 }
