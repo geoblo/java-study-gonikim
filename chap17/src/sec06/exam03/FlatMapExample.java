@@ -30,7 +30,11 @@ public class FlatMapExample {
 			})
 			.forEach(number -> System.out.println(number)); // 5개의 int가 흘러가는 IntStream 출력
 		
-		// <? super String, ? extends IntStream>
+		// (참고) Function<? super T, ? extends R>
+		// 리턴 타입이나 매개변수 타입에 쓰일 수 있음
+		// super: T이거나 T의 부모라면 올 수 있다.(즉, 최소한 T 타입 이상이 와야 함)
+		// extends: R이거나 R의 자식이면 올 수 있다.(즉, 최대 R 타입 이하가 와야 함)
+		
 	}
 
 }
