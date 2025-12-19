@@ -1,5 +1,7 @@
 package board;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 
@@ -90,9 +92,17 @@ public class Main {
 		}
 		
 		// Quiz
+		int no = board.getNo();
+		String title = board.getTitle();
+		String writer = board.getWriter();
+		String content = board.getContent();
+		LocalDateTime regDate = board.getRegDate();
+		LocalDateTime updDate = board.getUpdDate();
 		
-		
-		
+		// 날짜 포맷
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		String reg = regDate.format(formatter);
+		String upd = updDate.format(formatter);
 		
 		System.out.println("========================================");
 		System.out.println("★ 글 번호: " + no);

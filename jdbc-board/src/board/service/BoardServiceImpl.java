@@ -21,6 +21,30 @@ public class BoardServiceImpl implements BoardService {
 		// 게시글 목록 데이터 반환
 		return boardList;
 	}
+
+	@Override
+	public BoardDTO select(int no) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int insert(BoardDTO board) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int update(BoardDTO board) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int delete(int no) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 	
