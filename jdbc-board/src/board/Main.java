@@ -32,8 +32,8 @@ public class Main {
 				case 1: list(); break;   // 게시글 목록
 				case 2: select(); break; // 게시글 조회
 				case 3: insert(); break; // 게시글 등록
-//				case 4: update(); break; // 게시글 수정
-//				case 5: delete(); break; // 게시글 삭제
+				case 4: update(); break; // 게시글 수정
+				case 5: delete(); break; // 게시글 삭제
 			}
 		}
 		System.out.println("프로그램을 종료합니다!");
@@ -167,23 +167,45 @@ public class Main {
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	/**
+	 * 게시글 수정
+	 */
+	public static void update() {
+		System.out.println("========== 게시글 수정 ==========");
+		
+		System.out.print("게시글 번호: ");
+		int no = sc.nextInt();
+		sc.nextLine();
 
+		BoardDTO board = input();
+		board.setNo(no);
+		
+		// 게시글 수정 요청
+		int result = boardService.update(board);
+		if (result > 0) {
+			System.out.println("★ 게시글이 수정되었습니다.");
+		} else {
+			System.out.println("★ 게시글 수정에 실패하였습니다.");
+		}
+	}
+
+	/**
+	 * 게시글 삭제
+	 */
+	public static void delete() {
+		System.out.println("========== 게시글 삭제 ==========");
+		
+		System.out.print("게시글 번호: ");
+		int no = sc.nextInt();
+		sc.nextLine();
+		
+		// 게시글 삭제 요청
+		int result = boardService.delete(no);
+		if (result > 0) {
+			System.out.println("★ 게시글을 삭제하였습니다.");
+		} else {
+			System.out.println("★ 게시글 삭제에 실패하였습니다.");
+		}
+	}
+	
 }
