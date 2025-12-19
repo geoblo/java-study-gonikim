@@ -1,0 +1,73 @@
+package board.dao;
+
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import board.dto.BoardDTO;
+
+/**
+ * 데이터 접근 객체
+ * 데이터베이스에 접근하는 로직들을 작성
+ * 여기서는 게시글 데이터에 접근
+ */
+public class BoardDAO extends DBConnection {
+	
+	/**
+	 * 게시글 목록
+	 */
+	public List<BoardDTO> list() {
+		// 게시글 목록을 담을 컬렉션 객체 생성
+		List<BoardDTO> boardList = new ArrayList<>();
+		
+		// SQL 작성
+		// 최근 작성글부터 보여지도록 조회
+		String sql = "SELECT * FROM board ORDER BY reg_date DESC";
+		
+		try {
+			// 1. SQL 실행 객체 생성 - Statement(stmt)
+			stmt = conn.createStatement();
+			
+			// 2. SQL 실행 요청 -> 반환되는 결과 ResultSet(rs)
+			rs = stmt.executeQuery(sql);
+			
+			// 3. 조회된 결과를 리스트(boardList)에 추가
+			while (rs.next()) { // 조회된 결과의 다음 행으로 이동
+				BoardDTO board = new BoardDTO();
+				
+				// 결과 데이터 가져오기
+				// rs.getXXX("컬럼명"): 해당 컬럼의 데이터를 반환
+				board.setNo(rs.getInt("no"));
+				board.setTitle(rs.getString("title"));
+				board.setWriter(rs.getString("writer"));
+				board.setContent(rs.getString("content"));
+				board.setRegDate(rs.getObject("reg_date", LocalDateTime.class));
+				board.setUpdDate(rs.getObject("upd_date", LocalDateTime.class));
+				
+				// 게시글 목록 추가
+				boardList.add(board);
+			}
+		} catch (SQLException e) {
+			System.out.println("게시물 목록 조회 - 예외 발생");
+			e.printStackTrace();
+		}
+		
+		// 4. 게시글 목록 반환
+		return boardList;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

@@ -1,4 +1,4 @@
-package board;
+package board.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
