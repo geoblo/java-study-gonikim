@@ -1,9 +1,15 @@
 package board;
 
+import java.util.List;
 import java.util.Scanner;
+
+import board.dto.BoardDTO;
+import board.service.BoardService;
+import board.service.BoardServiceImpl;
 
 public class Main {
 	private static Scanner sc = new Scanner(System.in);
+	private static BoardService boardService = new BoardServiceImpl(); // 게시판 비즈니스 로직 객체
 	
 	public static void main(String[] args) {
 		int menuNo = 0;
@@ -21,7 +27,7 @@ public class Main {
 				
 			// 메뉴 선택
 			switch (menuNo) {
-//				case 1: list(); break;   // 게시글 목록
+				case 1: list(); break;   // 게시글 목록
 //				case 2: select(); break; // 게시글 조회
 //				case 3: insert(); break; // 게시글 등록
 //				case 4: update(); break; // 게시글 수정
@@ -44,5 +50,71 @@ public class Main {
 		System.out.println("0. 프로그램 종료");
 		System.out.print("번호 입력: ");
 	}
+	
+	/**
+	 * 게시글 목록
+	 */
+	public static void list() {
+		System.out.println("========== 게시글 목록 ==========");
+		
+		// 게시글 목록 데이터 요청
+		List<BoardDTO> boardList = boardService.list();
+		printAll(boardList);
+	}
+	
+	/**
+	 * 글 목록 전체 출력
+	 * @param boardList
+	 */
+	public static void printAll(List<BoardDTO> boardList) {
+		// 글 목록이 존재하는 확인
+		if (boardList == null || boardList.isEmpty()) {
+			System.out.println("조회된 글이 없습니다.");
+			return;
+		}
+		
+		// 글 목록 출력
+		for (BoardDTO board : boardList) {
+			print(board);
+		}
+	}
+	
+	/**
+	 * 게시글 출력
+	 * @param board
+	 */
+	public static void print(BoardDTO board) {
+		if (board == null) {
+			System.out.println("조회할 수 없는 게시글입니다.");
+			return;
+		}
+		
+		// Quiz
+		
+		
+		
+		
+		System.out.println("========================================");
+		System.out.println("★ 글 번호: " + no);
+		System.out.println("★ 제목: " + title);
+		System.out.println("★ 작성자: " + writer);
+		System.out.println("----------------------------------------");
+		System.out.println(" " + content);
+		System.out.println();
+		System.out.println("★ 등록일: " + reg);
+		System.out.println("★ 수정일: " + upd);
+		System.out.println("========================================");
+		System.out.println();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
