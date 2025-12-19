@@ -30,8 +30,8 @@ public class Main {
 			// 메뉴 선택
 			switch (menuNo) {
 				case 1: list(); break;   // 게시글 목록
-//				case 2: select(); break; // 게시글 조회
-//				case 3: insert(); break; // 게시글 등록
+				case 2: select(); break; // 게시글 조회
+				case 3: insert(); break; // 게시글 등록
 //				case 4: update(); break; // 게시글 수정
 //				case 5: delete(); break; // 게시글 삭제
 			}
@@ -116,6 +116,65 @@ public class Main {
 		System.out.println("========================================");
 		System.out.println();
 	}
+	
+	/**
+	 * 게시글 조회
+	 */
+	public static void select() {
+		System.out.println("========== 게시글 조회 ==========");
+		System.out.print("글 번호: ");
+		int no = sc.nextInt();
+		sc.nextLine();
+		
+		// 글 번호(no)를 전달하여 게시글 정보 데이터 요청
+		BoardDTO board = boardService.select(no);
+		
+		// 게시글 출력
+		print(board);
+	}
+	
+	/**
+	 * 게시글 정보 입력
+	 * @return
+	 */
+	public static BoardDTO input() {
+		// 필수 입력값: 제목, 작성자, 내용
+		System.out.print("제목: ");
+		String title = sc.nextLine();
+		System.out.print("작성자: ");
+		String writer = sc.nextLine();
+		System.out.print("내용: ");
+		String content = sc.nextLine();
+		
+		BoardDTO board = new BoardDTO(title, writer, content);
+		return board;
+	}
+	
+	/**
+	 * 게시글 등록
+	 */
+	public static void insert() {
+		System.out.println("========== 게시글 등록 ==========");
+		
+		BoardDTO board = input();
+		
+		// 게시글 등록 요청
+		int result = boardService.insert(board);
+		if (result > 0) {
+			System.out.println("★ 게시글이 등록되었습니다.");
+		} else {
+			System.out.println("★ 게시글이 등록에 실패하였습니다.");			
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

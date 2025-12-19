@@ -24,14 +24,25 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public BoardDTO select(int no) {
-		// TODO Auto-generated method stub
-		return null;
+		// 게시글 번호(no)를 DB로 넘겨주고 게시글 정보 요청
+		BoardDTO board = boardDAO.select(no);
+		
+		// 게시글 정보 반환
+		return board;
 	}
 
 	@Override
 	public int insert(BoardDTO board) {
-		// TODO Auto-generated method stub
-		return 0;
+		// 게시글 정보를 전달하여 DB에 데이터 등록 요청
+		int result = boardDAO.insert(board);
+		
+		if (result > 0) {
+			System.out.println("데이터 등록 성공!");
+		} else {
+			System.out.println("데이터 등록 실패!");
+		}
+		
+		return result;
 	}
 
 	@Override

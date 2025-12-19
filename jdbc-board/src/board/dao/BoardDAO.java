@@ -106,7 +106,36 @@ public class BoardDAO extends DBConnection {
 		return board;
 	}
 	
-	
+	/**
+	 * 게시글 등록
+	 * @param board
+	 * @return
+	 */
+	public int insert(BoardDTO board) {
+		int result = 0; // DB에 적용된 데이터 개수
+		
+		String sql = "INSERT INTO board (title, writer, content) "
+				   + "VALUES (?, ?, ?)";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, board.getTitle());
+			pstmt.setString(2, board.getWriter());
+			pstmt.setString(3, board.getContent());
+			
+			result = pstmt.executeUpdate();
+			// executeUpdate()
+			// SQL(INSERT, UPDATE, DELETE) 실행 시 적용된 데이터 개수를 int 타입으로 반환
+			// 예: 게시글 1개 등록 시
+			// result = 1 (성공)
+			// result = 0 (실패)
+		} catch (SQLException e) {
+			System.out.println("게시글 등록 - 예외 발생");
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 	
 	
 	
